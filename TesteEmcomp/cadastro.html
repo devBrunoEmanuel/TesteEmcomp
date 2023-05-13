@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Locadora - Registro de Usuários</title>
+    <link rel="stylesheet" href="./CSS/cadastro.css">
+</head>
+
+<body>
+    <h1>Registro de Usuários</h1>
+    <button onclick="showAddUserForm()">Adicionar Usuário</button>
+    <div id="add-user-form">
+        <h2>Adicionar Usuário</h2>
+        <form onsubmit="addUser(event)">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required />
+
+            <label for="funcao">Função:</label>
+            <select id="funcao" name="funcao" required>
+                <option value="">Selecione uma função</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Usuário">Usuário</option>
+            </select>
+
+            <button type="submit">Adicionar</button>
+        </form>
+    </div>
+    <div id="edit-user-form">
+        <h2>Editar Usuário</h2>
+        <form onsubmit="saveUser(event)">
+            <input type="hidden" id="edit-user-index" />
+
+            <label for="edit-name">Nome:</label>
+            <input type="text" id="edit-name" name="name" required />
+
+            <label for="edit-email">E-mail:</label>
+            <input type="email" id="edit-email" name="email" required />
+
+            <label for="edit-password">Senha:</label>
+            <input type="password" id="edit-password" name="password" required />
+
+            <label for="edit-funcao">Função:</label>
+            <select id="edit-funcao" name="funcao" required>
+                <option value="">Selecione uma função</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Usuário">Usuário</option>
+            </select>
+
+            <button type="submit">Salvar</button>
+            <button type="button" onclick="cancelEdit()">Cancelar</button>
+        </form>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Função</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="user-table-body"></tbody>
+    </table>
+
+    <script src="./JS/cadastro.js"></script>
+</body>
+
+</html>
